@@ -1,0 +1,10 @@
+#  Simple Sum
+awk '{s+=$1} END {print s}'
+
+# Count / Sum/ Avg/ Median
+sort -n | awk 'BEGIN{c=0;sum=0;}\
+    /^[^#]/{a[c++]=$1;sum+=$1;}\
+    END{ave=sum/c;\
+    if((c%2)==1){median=a[int(c/2)];}\
+    else{median=(a[c/2]+a[c/2-1])/2;}\
+    print sum,"\t",c,"\t",ave,"\t",median,}'''

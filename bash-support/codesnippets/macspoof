@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cmd=$1
+if [ $cmd = "spoof" ] ; then
+  mac=`openssl rand -hex 6 | sed "s/\(..\)\(..\)\(..\)\(..\)\(..\)\(..\)/\1:\2:\3:\4:\5:\6/"`
+  echo $mac
+  sudo ifconfig en1 ether $mac
+elif [ $cmd = "restore" ]; then
+  sudo ifconfig en1 ether 60:c5:47:92:01:e6
+fi
+
