@@ -46,6 +46,10 @@ while <CURSOR> ; do
 == Statements.function == map:sfu, shortcut:f  ==
 |?FUNCTION_NAME| ()
 {
+  local arg1="$1"; shift
+  local arg2="$1"; shift
+  local rest="$@"
+
 <CURSOR><SPLIT>
 }	# ----------  end of function |FUNCTION_NAME|  ----------
 == ENDTEMPLATE ==
